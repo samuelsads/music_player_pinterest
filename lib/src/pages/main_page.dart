@@ -14,6 +14,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        toolbarHeight:25,
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: Icon(Icons.menu),
@@ -53,19 +54,12 @@ class _MorePopularMusic extends StatelessWidget {
         height: size.height / 2,
         child: ListView.separated(
             itemBuilder: (context, index) {
-              if (content[index].style != null) {
-                return _MorePopularMusicItem(
-                  title: content[index].title,
-                  subtitle: content[index].subtitle,
-                  textStyleTitle: content[index].style,
-                );
-              } else {
-                return _MorePopularMusicItem(
-                  title: content[index].title,
-                  subtitle: content[index].subtitle,
-                  icon: content[index].icon,
-                );
-              }
+              return _MorePopularMusicItem(
+                title: content[index].title,
+                subtitle: content[index].subtitle,
+                textStyleTitle: content[index].style,
+                icon: content[index].icon,
+              );
             },
             separatorBuilder: (context, index) => Divider(),
             itemCount: content.length));

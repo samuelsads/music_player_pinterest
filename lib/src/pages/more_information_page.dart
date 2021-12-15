@@ -12,6 +12,7 @@ class MoreInformationPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        toolbarHeight:30,
           backgroundColor: Colors.transparent,
           elevation: 0,
           actions: <Widget>[
@@ -99,7 +100,7 @@ class _MusicInformation extends StatelessWidget {
                     width: size.width * 0.4,
                     color: Colors.black),
                 Positioned(
-                    right: size.width * 0.45,
+                    right: size.width * 0.43,
                     child: Container(
                         height: 10,
                         width: 10,
