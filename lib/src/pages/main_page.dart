@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:music_player_pinterest/src/models/music.dart';
 import 'package:music_player_pinterest/src/pages/more_information_page.dart';
 
 class MainPage extends StatelessWidget {
@@ -48,38 +49,26 @@ class _MorePopularMusic extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color = Colors.black54;
     return Container(
-      width: double.infinity,
-      height: size.height / 2,
-      child: Column(
-        children: [
-          SizedBox(
-            height: 40,
-          ),
-          _MorePopularMusicItem(
-              title: 'Popular',
-              subtitle: 'show all',
-              textStyleTitle:
-                  TextStyle(fontSize: 30, fontWeight: FontWeight.w600)),
-          Divider(),
-          _MorePopularMusicItem(
-              title: 'No tears left to cry',
-              subtitle: '6:30',
-              icon: FaIcon(FontAwesomeIcons.ellipsisH, color: color)),
-          _MorePopularMusicItem(
-              title: 'Imagine',
-              subtitle: '3:20',
-              icon: FaIcon(FontAwesomeIcons.ellipsisH, color: color)),
-          _MorePopularMusicItem(
-              title: 'Into you',
-              subtitle: '4:17',
-              icon: FaIcon(FontAwesomeIcons.ellipsisH, color: color)),
-          _MorePopularMusicItem(
-              title: 'One last time',
-              subtitle: '4:40',
-              icon: FaIcon(FontAwesomeIcons.ellipsisH, color: color)),
-        ],
-      ),
-    );
+        width: double.infinity,
+        height: size.height / 2,
+        child: ListView.separated(
+            itemBuilder: (context, index) {
+              if (content[index].style != null) {
+                return _MorePopularMusicItem(
+                  title: content[index].title,
+                  subtitle: content[index].subtitle,
+                  textStyleTitle: content[index].style,
+                );
+              } else {
+                return _MorePopularMusicItem(
+                  title: content[index].title,
+                  subtitle: content[index].subtitle,
+                  icon: content[index].icon,
+                );
+              }
+            },
+            separatorBuilder: (context, index) => Divider(),
+            itemCount: content.length));
   }
 }
 
@@ -135,7 +124,7 @@ class _MorePopularMusicItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
-      height: 60,
+      height: 40,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
