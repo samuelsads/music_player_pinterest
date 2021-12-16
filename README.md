@@ -3,17 +3,17 @@ This project was building with a image of Pinterest (This is link https://www.pi
 
 This is a personal challege
 
-##Dependecies
+## Dependecies
 
-animate_do
-font_awesome_flutter
+- animate_do
+- font_awesome_flutter
 
 I used animate_do for little animations
 
-##Install
+## Install
 
-*You need to clone project
-*You need to move into folter with project and run "flutter pub get", with this command you will download all dependecies for build this app.
+- You need to clone project
+- You need to move into folter with project and run "flutter pub get", with this command you will download all dependecies for build this app.
 
 
 
